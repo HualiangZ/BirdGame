@@ -21,6 +21,9 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Camera")
 	class UCameraComponent* Camera;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "NumFris")
+	bool isFrisbe = true;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

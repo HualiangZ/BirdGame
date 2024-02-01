@@ -45,6 +45,8 @@ void ABird::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	PlayerInputComponent->BindAxis(TEXT("MoveRight"), this, &ABird::MoveRight);
 	PlayerInputComponent->BindAxis(TEXT("LookTurn"), this, &ABird::AddControllerYawInput);
 	PlayerInputComponent->BindAxis(TEXT("LookUp"), this, &ABird::AddControllerPitchInput);
+	PlayerInputComponent->BindAction(TEXT("Jump"), IE_Pressed, this, &ABird::Jump);
+
 }
 
 void ABird::MoveRight(float value) {
