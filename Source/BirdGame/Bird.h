@@ -27,6 +27,9 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "NumHit")
 	int HitNum = 0;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "IsDead")
+	bool  isDead = false;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

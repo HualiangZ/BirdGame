@@ -33,6 +33,9 @@ void ABird::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	if (isDead) {
+		GetCharacterMovement()->MaxWalkSpeed = 0;
+	}
 }
 
 // Called to bind functionality to input
