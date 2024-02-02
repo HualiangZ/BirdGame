@@ -45,7 +45,10 @@ void ABird::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	PlayerInputComponent->BindAxis(TEXT("MoveRight"), this, &ABird::MoveRight);
 	PlayerInputComponent->BindAxis(TEXT("LookTurn"), this, &ABird::AddControllerYawInput);
 	PlayerInputComponent->BindAxis(TEXT("LookUp"), this, &ABird::AddControllerPitchInput);
+
 	PlayerInputComponent->BindAction(TEXT("Jump"), IE_Pressed, this, &ABird::Jump);
+	PlayerInputComponent->BindAction(TEXT("ChangeMoveSpeed"), IE_Pressed, this, &ABird::SlowMoveSpeed);
+	PlayerInputComponent->BindAction(TEXT("ChangeMoveSpeed"), IE_Released, this, &ABird::NormalMoveSpeed);
 
 }
 
@@ -59,4 +62,12 @@ void ABird::MoveForward(float value) {
 }
 void ABird::MoveBack(float value) {
 	AddMovementInput(GetActorForwardVector() * value);
+}
+
+void ABird::SlowMoveSpeed() {
+	GetCharacterMovement()->MaxWalkSpeed = 300;
+}
+
+void ABird::NormalMoveSpeed() {
+	GetCharacterMovement()->MaxWalkSpeed = 600;
 }

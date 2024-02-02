@@ -22,7 +22,10 @@ public:
 	class UCameraComponent* Camera;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "NumFris")
-	bool isFrisbe = true;
+	bool haveFrisbe = true;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "NumHit")
+	int HitNum = 0;
 
 protected:
 	// Called when the game starts or when spawned
@@ -37,4 +40,7 @@ public:
 	void MoveForward(float value);
 	void MoveBack(float value);
 	void MoveRight(float value);
+
+	void SlowMoveSpeed();
+	void NormalMoveSpeed();
 };
